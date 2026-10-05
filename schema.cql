@@ -1,3 +1,4 @@
+SELECT data_center FROM system.local;
 CREATE KEYSPACE actors
 WITH replication = {
 'class': 'NetworkTopologyStrategy',
@@ -5,7 +6,7 @@ WITH replication = {
 };
 USE actors;
 
-// creo que esto va acá, creacion tablas
+// aquí va la creación de tablas
 CREATE TABLE actors.actores_por_nacionalidad(
     id_nacionalidad int,
     nacionalidad text,
@@ -15,9 +16,9 @@ CREATE TABLE actors.actores_por_nacionalidad(
     edad int,
     patrimonio int,
     idiomas set <text>,
-    PRIMARY KEY ((id_nacionalidad),id_actor,edad)
+    PRIMARY KEY ((id_nacionalidad), edad, id_actor)
 ) WITH comment = 'Responde a Q2'
-AND CLUSTERING ORDER BY (id_actor ASC, edad ASC);
+AND CLUSTERING ORDER BY (edad ASC, id_actor ASC);
 
 CREATE TABLE actors.personajes_de_actor_por_rol_y_apariciones(
     id_actor int,
@@ -30,9 +31,9 @@ CREATE TABLE actors.personajes_de_actor_por_rol_y_apariciones(
     rol text,
     cantidad_de_apariciones int,
     generos set <text>,
-    PRIMARY KEY((id_actor),id_personaje,rol,cantidad_de_apariciones)
+    PRIMARY KEY((id_actor),rol,cantidad_de_apariciones,id_personaje)
 ) WITH comment = 'Responde a Q3'
-AND CLUSTERING ORDER BY (id_actor ASC, rol ASC, cantidad_de_apariciones DESC);
+AND CLUSTERING ORDER BY (rol ASC, cantidad_de_apariciones DESC, id_personaje ASC);
 
 CREATE TABLE actors.actor(
     id_actor int,
