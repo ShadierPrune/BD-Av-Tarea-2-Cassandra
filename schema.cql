@@ -1,6 +1,5 @@
 // aquí va la creación de tablas
 CREATE TABLE actors.actores_por_nacionalidad(
-    id_nacionalidad int,
     nacionalidad text,
     id_actor int,
     nombre_actor text,
@@ -8,7 +7,7 @@ CREATE TABLE actors.actores_por_nacionalidad(
     edad int,
     patrimonio int,
     idiomas set <text>,
-    PRIMARY KEY ((id_nacionalidad), edad, id_actor)
+    PRIMARY KEY ((nacionalidad), edad, id_actor)
 ) WITH comment = 'Responde a Q2'
 AND CLUSTERING ORDER BY (edad ASC, id_actor ASC);
 
