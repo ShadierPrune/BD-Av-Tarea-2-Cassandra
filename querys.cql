@@ -18,3 +18,9 @@ WHERE rol = 'principal'
 	AND id_actor = 10000001
 ORDER BY cantidad_de_apariciones DESC
 LIMIT 10;
+
+// query 4
+SELECT nombre_actor, id_actor, nacionalidad
+FROM actors.actores_por_nacionalidad
+ORDER BY id_actor ASC
+LIMIT 5;
