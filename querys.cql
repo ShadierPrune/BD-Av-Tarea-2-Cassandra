@@ -25,3 +25,24 @@ FROM actors.actores_por_nacionalidad
 WHERE nacionalidad = 'Japón'
 ORDER BY id_actor ASC
 LIMIT 5;
+
+// query para filtering
+SELECT nombre_actor, id_actor, nacionalidad, edad
+FROM actors.actor
+WHERE nacionalidad = 'Chile'
+	AND edad > 40
+LIMIT 10;
+
+// querys para sai
+SELECT nombre_actor, id_actor, nacionalidad, edad
+FROM actors.actor
+WHERE nacionalidad = 'Chile';
+
+SELECT nombre_actor, id_actor, nacionalidad, edad
+FROM actors.actor
+WHERE edad > 40;
+
+SELECT nombre_actor, id_actor, nacionalidad, edad
+FROM actors.actor
+WHERE nacionalidad = 'Chile'
+	AND edad > 40;
