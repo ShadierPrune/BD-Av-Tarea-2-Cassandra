@@ -22,5 +22,6 @@ LIMIT 10;
 // query 4
 SELECT nombre_actor, id_actor, nacionalidad
 FROM actors.actores_por_nacionalidad
+WHERE nacionalidad = 'Japón'
 ORDER BY id_actor ASC
 LIMIT 5;
