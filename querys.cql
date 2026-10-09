@@ -8,8 +8,6 @@ LIMIT 10;
 SELECT nombre_actor, id_actor, nacionalidad, edad, patrimonio
 FROM actors.actores_por_nacionalidad
 WHERE nacionalidad = 'Chile'
-	AND id_actor > 10000000
-	AND edad > 19
 ORDER BY edad ASC
 LIMIT 10;
 
