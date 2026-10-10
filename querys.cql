@@ -63,3 +63,22 @@ USING 'sai';
 SELECT nombre_actor, id_actor, nacionalidad, idiomas
 FROM actors.actor
 WHERE idiomas CONTAINS 'español';
+
+// desnormalización vs índices
+
+SELECT nombre_actor, id_actor, nacionalidad
+FROM actors.actores_por_nacionalidad
+WHERE nacionalidad = 'Estados Unidos';
+
+SELECT nombre_actor, id_actor, nacionalidad
+FROM actors.actor
+WHERE nacionalidad = 'Estados Unidos';
+
+// alta disponibilidad
+
+INSERT INTO actors.actor (id_actor, nombre_actor, nacionalidad, fecha_de_nacimiento, edad, patrimonio, idiomas) 
+VALUES (9000001, 'Test1', 'Chile', '2006-03-15', 18, 50000, {'español'});
+
+SELECT nombre_actor, id_actor, nacionalidad
+FROM actors.actor
+WHERE edad < 20;
