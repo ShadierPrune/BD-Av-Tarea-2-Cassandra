@@ -34,6 +34,15 @@ WHERE nacionalidad = 'Chile'
 LIMIT 10;
 
 // querys para sai
+
+CREATE INDEX index_nacionalidad
+ON actors.actor(nacionalidad)
+USING 'sai';
+
+CREATE INDEX index_edad
+ON actors.actor(edad)
+USING 'sai';
+
 SELECT nombre_actor, id_actor, nacionalidad, edad
 FROM actors.actor
 WHERE nacionalidad = 'Chile';
@@ -46,3 +55,11 @@ SELECT nombre_actor, id_actor, nacionalidad, edad
 FROM actors.actor
 WHERE nacionalidad = 'Chile'
 	AND edad > 40;
+	
+CREATE INDEX index_idiomas
+ON actors.actor(idiomas)
+USING 'sai';
+
+SELECT nombre_actor, id_actor, nacionalidad, idiomas
+FROM actors.actor
+WHERE idiomas CONTAINS 'español';
